@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Resultado de Distancia</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        @keyframes spaceScroll {
+            0% {
+                background-position: center 0%;
+            }
+            100% {
+                background-position: center 100%;
+            }
+        }
+
+        body {
+            background: 
+                        url('https://images.pexels.com/photos/2422/sky-earth-galaxy-universe.jpg') no-repeat center center fixed;
+            background-size: cover;
+            animation: spaceScroll 60s infinite linear;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="text-center">Resultado de Distancia</h2>
+        <p class="lead text-center">La distancia entre <strong>{{ ciudad1 }}</strong> y <strong>{{ ciudad2 }}</strong> es de <strong>{{ distancia }}</strong> km.</p>
+        <div class="text-center">
+            <a href="/" class="btn btn-primary">Volver a calcular</a>
+        </div>
+    </div>
+</body>
+
+</html>
