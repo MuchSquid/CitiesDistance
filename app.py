@@ -49,9 +49,18 @@ class CSVCoordinates:
 
 
 class MockCoordinates:
+    results = {}
+
+    def mock(self, ciudades, result):
+        if ciudades not in self.results.keys():
+            self.results[ciudades] = result
+            return True
+        if self.results[ciudades] == result:
+            return True
+        return False
+
     def get_coords(self, city):
-        # This is just for demonstration purposes, it will return fixed coordinates
-        return 40.730610, -73.935242  # New York coordinates for all cities
+        return 40.730610, -73.935242  
 
 
 def haversine(lat1, lon1, lat2, lon2):
@@ -79,6 +88,7 @@ def calcular_distancia():
 
 
     factory = CoordinatesFactory()
+    mock = factory.get_coords_method('mock')
     method = factory.get_coords_method(method_type)
 
     lat1, lon1 = method.get_coords(ciudad1)
@@ -89,6 +99,8 @@ def calcular_distancia():
     
     distancia = haversine(lat1, lon1, lat2, lon2)
 
+    prueba = mock.mock(ciudad1 + "-" + ciudad2, distancia)
+    print(f"Mock {ciudad1} - {ciudad2}: ", prueba)
 
     if method_type == 'csv':
         return render_template('resultado_csv.html', ciudad1=ciudad1, ciudad2=ciudad2, distancia=distancia)
